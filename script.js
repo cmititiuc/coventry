@@ -15,7 +15,7 @@ function init() {
               function(callback) {
                   return setTimeout(callback, 16);
               };
-    
+
       // Let's define our square
       var square = {
           'x': 50,
@@ -24,7 +24,7 @@ function init() {
           'height': 10,
           'fill': '#000000'
       };
-    
+
       var render = function() {
           // Clear the canvas
           context.clearRect(0, 0, canvas.width, canvas.height);
@@ -71,7 +71,7 @@ function init() {
           var prop = 'x';
           var mult = 1;
           
-          // Just return false if the key isn't an arrow key
+          // Just return false if the key isn't W, A, S, D
           if (e.which !== 65 && e.which !== 68 && e.which !== 87 && e.which !== 83) { // a 65, d 68, s 83, w 87
               return false;
           };
@@ -88,6 +88,17 @@ function init() {
     
           return [prop, mult * distance];
       };
+
+      var resizeCanvas = function() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        render();
+      };
+
+      resizeCanvas();
+
+      // resize the canvas to fill browser window dynamically
+      window.addEventListener('resize', resizeCanvas, false);
     
       document.body.addEventListener('keydown', function(e) {
           var info = meta(e);

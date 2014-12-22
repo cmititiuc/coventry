@@ -1,3 +1,15 @@
-canvas {
-  background-color: #CCC;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#canvas {
+  background-color: #DDD;
+}
+
+#info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px;
 }
